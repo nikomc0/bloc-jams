@@ -28,13 +28,14 @@ body.landing {
 }
 
 .selling-points {
-   position: relative;
+    position: relative;
+
 }
 
 .point {
-   position: relative;
-   padding: 2rem;
-   text-align: center;
+     position: relative;
+     padding: 2rem;
+     text-align: center;
 }
 
 .point .point-title {
