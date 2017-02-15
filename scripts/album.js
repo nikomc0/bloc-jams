@@ -13,7 +13,6 @@ var albumPicasso = {
 	]
 };
 
-
 var albumMarconi = {
 	title: 'The Telephone',
 	artist: 'Guglielmo Marconi',
@@ -29,6 +28,21 @@ var albumMarconi = {
 	]
 };
 
+var albumTDW = {
+	title: 'The System',
+	artist: 'This Damn World',
+	label: 'OSFP',
+	year: '2017',
+	albumArtUrl: 'assets/images/album_covers/16.png',
+	songs: [
+		{title:'Lipstick', duration: '5:00'},
+		{title:'Chewing Gum', duration: '13:00'},
+		{title:'Latte', duration: '2:36'},
+		{title:'Silver Moon', duration: '3:10'},
+		{title:'Squash', duration: '4:23'},
+	]
+}
+
 var createSongRow = function(songNumber, songName, songLength) {
 	var template = 
 		
@@ -42,14 +56,13 @@ var createSongRow = function(songNumber, songName, songLength) {
 	return template;
 };
 
+var albumTitle = document.getElementsByClassName('album-view-title')[0];
+var albumArtist = document.getElementsByClassName('album-view-artist')[0];
+var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
+var albumImage = document.getElementsByClassName('album-cover-art')[0];
+var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
 
 var setCurrentAlbum = function(album) {
-
-	var albumTitle = document.getElementsByClassName('album-view-title')[0];
-	var albumArtist = document.getElementsByClassName('album-view-artist')[0];
-	var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
-	var albumImage = document.getElementsByClassName('album-cover-art')[0];
-	var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
 
 	albumTitle.firstChild.nodeValue = album.title;
 	albumArtist.firstChild.nodeValue = album.artist;
@@ -64,5 +77,17 @@ var setCurrentAlbum = function(album) {
 };
 
 window.onload = function() {
- setCurrentAlbum(albumPicasso);
+	setCurrentAlbum(albumPicasso);
+
+	var albums = [albumPicasso, albumMarconi, albumTDW];
+	var index = 1;
+
+	albumImage.addEventListener("click", function() {
+		setCurrentAlbum(albums[index]);
+		index++;
+
+		if (index === albums.length) {
+		index = 0;
+		}
+	});
 };
