@@ -4,11 +4,11 @@ var points = document.getElementsByClassName('point');
 
 var revealPoint = function() {
 
-   for(var i = 0; i < points.length; i++){
+   for (var i = 0; i < points.length; i++) {
      
-     if(points[i] == points[1]){
+     if (points[i] === points[1]) {
        points[i].style.transitionDelay = ".4s";
-     } else if (points[i] == points[2]){
+     } else if (points[i] === points[2]) {
        points[i].style.transitionDelay = ".6s"
      }
     
