@@ -59,10 +59,10 @@ var setCurrentAlbum = function(album) {
 	albumSongList.innerHTML = '';
 
 	for (var i = 0; i < album.songs.length; i++) {
-	 albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
+		albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
 	}
 };
 
 window.onload = function() {
- setCurrentAlbum(albumPicasso);
+	setCurrentAlbum(albumPicasso);
 };
