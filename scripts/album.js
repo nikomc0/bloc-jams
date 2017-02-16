@@ -41,7 +41,7 @@ var albumTDW = {
 		{title:'Silver Moon', duration: '3:10'},
 		{title:'Squash', duration: '4:23'},
 	]
-}
+};
 
 var createSongRow = function(songNumber, songName, songLength) {
 	var template = 
@@ -72,7 +72,7 @@ var setCurrentAlbum = function(album) {
 	albumSongList.innerHTML = '';
 
 	for (var i = 0; i < album.songs.length; i++) {
-	 albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
+		albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
 	}
 };
 
@@ -87,7 +87,7 @@ window.onload = function() {
 		index++;
 
 		if (index === albums.length) {
-		index = 0;
+			index = 0;
 		}
 	});
 };
