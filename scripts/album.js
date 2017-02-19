@@ -49,7 +49,7 @@ var createSongRow = function(songNumber, songName, songLength) {
 		  '<tr class="album-view-song-item">'
 		+ '	<td class="song-item-number">' + songNumber + '</td>'
 		+ '	<td class="song-item-title">' + songName + '</td>'
-		+ ' <td class="song-item-duration>' + songLength + '</td>'
+		+ ' <td class="song-item-duration">' + songLength + '</td>'
 		+ '</tr>'
 		;
 	
@@ -82,7 +82,7 @@ window.onload = function() {
 	var albums = [albumPicasso, albumMarconi, albumTDW];
 	var index = 1;
 
-	albumImage.addEventListener("click", function() {
+	albumImage.addEventListener('click', function() {
 		setCurrentAlbum(albums[index]);
 		index++;
 
