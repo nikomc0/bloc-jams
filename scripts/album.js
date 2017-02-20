@@ -121,11 +121,10 @@ var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause">
 var currentlyPlayingSong = null;
 
 window.onload = function() {
-	setCurrentAlbum(albumMarconi);
+	setCurrentAlbum(albumPicasso);
 	
 	songListContainer.addEventListener('mouseover', function(event) {
 		if (event.target.parentElement.className === 'album-view-song-item') {
-			event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
 			var songItem = getSongItem(event.target);
 
 			if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
@@ -143,7 +142,7 @@ window.onload = function() {
 			 songItem.innerHTML = songItemNumber;
 			}
 		});
-		
+		 
 		songRows[i].addEventListener('click', function(event) {
 			// Event Handler
 			clickHandler(event.target);
