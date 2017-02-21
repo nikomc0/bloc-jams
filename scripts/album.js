@@ -32,7 +32,7 @@ var albumMarconi = {
 var createSongRow = function (songNumber, songName, songLength) {
 	var template =
 		
-		'<tr class="album-view-song-item">'
+		  '<tr class="album-view-song-item">'
 		+ '	<td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
 		+ '	<td class="song-item-title">' + songName + '</td>'
 		+ '	<td class="song-item-duration">' + songLength + '</td>'
@@ -65,7 +65,6 @@ var setCurrentAlbum = function (album) {
 // Find Parent by Class Name function
 var findParentByClassName = function(element, targetClass) {
     var currentParent = element.parentElement;
-	console.log(currentParent);
  
     if (currentParent) {
         while (currentParent && currentParent.className != targetClass) {
