@@ -29,10 +29,10 @@ var albumMarconi = {
 	]
 };
 
-var createSongRow = function(songNumber, songName, songLength) {
-	var template = 
+var createSongRow = function (songNumber, songName, songLength) {
+	var template =
 		
-		  '<tr class="album-view-song-item">'
+		'<tr class="album-view-song-item">'
 		+ '	<td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
 		+ '	<td class="song-item-title">' + songName + '</td>'
 		+ '	<td class="song-item-duration">' + songLength + '</td>'
@@ -43,7 +43,7 @@ var createSongRow = function(songNumber, songName, songLength) {
 };
 
 
-var setCurrentAlbum = function(album) {
+var setCurrentAlbum = function (album) {
 	var albumTitle = document.getElementsByClassName('album-view-title')[0];
 	var albumArtist = document.getElementsByClassName('album-view-artist')[0];
 	var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
@@ -64,24 +64,25 @@ var setCurrentAlbum = function(album) {
 
 // Find Parent by Class Name function
 var findParentByClassName = function(element, targetClass) {
-	if (element) {
-		var currentParent = element.parentElement;
-		
-		if (currentParent === null) {
-			console.log("No parent found");
-		} else if (currentParent.className === null) {
-			console.log("No parent found with that class name");
-		} else {
-			while (currentParent.className != targetClass && currentParent.className !== null) {
-				currentParent = currentParent.parentElement;
-			}
-			return currentParent;
-		}
-	}
+    var currentParent = element.parentElement;
+	console.log(currentParent);
+ 
+    if (currentParent) {
+        while (currentParent && currentParent.className != targetClass) {
+            currentParent = currentParent.parentElement;
+        }
+        if (currentParent.className === targetClass) {
+            return currentParent;
+        } else {
+            console.log("No parent with that class name found.");
+        }
+    } else {
+        console.log("No parent found.");
+    }
 };
 
 // Get song item method.
-var getSongItem = function(element) {
+var getSongItem = function (element) {
     switch (element.className) {
         case 'album-song-button':
         case 'ion-play':
@@ -99,7 +100,7 @@ var getSongItem = function(element) {
     }  
 };
 
-var clickHandler = function(targetElement) {
+var clickHandler = function (targetElement) {
 	var songItem = getSongItem(targetElement);  
 	
 	if (currentlyPlayingSong === null) {
@@ -126,12 +127,11 @@ var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause">
 
 var currentlyPlayingSong = null;
 
-window.onload = function() {
+window.onload = function () {
 	setCurrentAlbum(albumMarconi);
 	
-	songListContainer.addEventListener('mouseover', function(event) {
+	songListContainer.addEventListener('mouseover', function (event) {
 		if (event.target.parentElement.className === 'album-view-song-item') {
-			event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
 			var songItem = getSongItem(event.target);
 
 			if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
@@ -141,16 +141,16 @@ window.onload = function() {
 	});
 	
 	for (var i = 0; i < songRows.length; i++) {
-		songRows[i].addEventListener('mouseleave', function(event) {
+		songRows[i].addEventListener('mouseleave', function (event) {
 			var songItem = getSongItem(event.target);
 			var songItemNumber = songItem.getAttribute('data-song-number');
 
 			if (songItemNumber !== currentlyPlayingSong) {
-			 songItem.innerHTML = songItemNumber;
+				songItem.innerHTML = songItemNumber;
 			}
 		});
 		
-		songRows[i].addEventListener('click', function(event) {
+		songRows[i].addEventListener('click', function (event) {
 			// Event Handler
 			clickHandler(event.target);
 		});		
