@@ -185,7 +185,6 @@ var togglePlayFromPlayerBar = function () {
 			currentSoundFile.pause();
 		}
 	} 
-
 };
 
 var setCurrentAlbum = function (album) {
