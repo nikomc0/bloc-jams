@@ -152,10 +152,7 @@ var previousSong = function() {
 
     // Set a new current song
     setSong(currentSongIndex + 1);
-<<<<<<< HEAD
-=======
 	currentSoundFile.play();
->>>>>>> checkpoint-20
     currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
 
     // Update the Player Bar information
