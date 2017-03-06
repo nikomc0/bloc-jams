@@ -210,5 +210,8 @@ $(document).ready(function () {
 	setCurrentAlbum(albumPicasso);
 	$previousButton.click(previousSong);
 	$nextButton.click(nextSong);
+<<<<<<< HEAD
 	$playButton.click(togglePlayFromPlayerBar);
+=======
+>>>>>>> checkpoint-19
 });
