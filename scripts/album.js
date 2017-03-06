@@ -84,7 +84,6 @@ var createSongRow = function (songNumber, songName, songLength) {
             songNumberCell.html(songNumber);
         }
     };
-
 	
 	$row.find('.song-item-number').click(clickHandler);
 	$row.hover(onHover, offHover);
@@ -105,8 +104,8 @@ var nextSong = function () {
     };
 	//	get the index of the current song and then increment the value of the index.
 	var currentSongIndex = trackIndex(currentAlbum, currentSongFromAlbum);
-		currentSongIndex++
-	;
+	currentSongIndex++;
+	
 	if (currentSongIndex >= currentAlbum.songs.length) {
         currentSongIndex = 0;
     }
@@ -126,8 +125,7 @@ var nextSong = function () {
     $lastSongNumberCell.html(lastSongNumber);
 };
 
-var previousSong = function() {
-
+var previousSong = function () {
     var getLastSongNumber = function (index) {
         return index == (currentAlbum.songs.length - 1) ? 1 : index + 2;
     };
