@@ -113,7 +113,7 @@ var updatePlayerBarSong = function () {
 var nextSong = function () {
 	//	previous song
 	var getLastSongNumber = function (index) {
-        return index == 0 ? currentAlbum.songs.length : index;
+        return index === 0 ? currentAlbum.songs.length : index;
     };
 	//	get the index of the current song and then increment the value of the index.
 	var currentSongIndex = trackIndex(currentAlbum, currentSongFromAlbum);
