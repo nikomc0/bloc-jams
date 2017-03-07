@@ -152,12 +152,10 @@ var previousSong = function() {
 
 var togglePlayFromPlayerBar = function () {
 	var songNumber = null;
-	
 	if(currentlyPlayingSongNumber === null) {
-		var songNumber = 1;
+		songNumber = 1;
 		setSong(songNumber);
 	}
-	
 	var $playerBarSongNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
 	if (currentlyPlayingSongNumber) {
 		if (currentSoundFile.isPaused()) {
