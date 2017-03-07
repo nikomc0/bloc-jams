@@ -164,7 +164,6 @@ var togglePlayFromPlayerBar = function () {
 			$playerBarSongNumberCell.html(pauseButtonTemplate);
 			$('.main-controls .play-pause').html(playerBarPauseButton);
 			currentSoundFile.play();
-			songNumber = currentlyPlayingSongNumber;
 		} else {
 			$playerBarSongNumberCell.html(playButtonTemplate);
 			$('.main-controls .play-pause').html(playerBarPlayButton);
