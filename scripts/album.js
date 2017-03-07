@@ -151,12 +151,20 @@ var previousSong = function() {
 };
 
 var togglePlayFromPlayerBar = function () {
+	var songNumber = null;
+	
+	if(currentlyPlayingSongNumber === null) {
+		var songNumber = 1;
+		setSong(songNumber);
+	}
+	
 	var $playerBarSongNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
 	if (currentlyPlayingSongNumber) {
 		if (currentSoundFile.isPaused()) {
 			$playerBarSongNumberCell.html(pauseButtonTemplate);
 			$('.main-controls .play-pause').html(playerBarPauseButton);
 			currentSoundFile.play();
+			songNumber = currentlyPlayingSongNumber;
 		} else {
 			$playerBarSongNumberCell.html(playButtonTemplate);
 			$('.main-controls .play-pause').html(playerBarPlayButton);
