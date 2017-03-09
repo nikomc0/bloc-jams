@@ -12,7 +12,7 @@ var setSong = function (songNumber) {
 	setVolume(currentVolume);
 };
 
-var seek = function(time) {
+var seek = function (time) {
 	if (currentSoundFile) {
 		currentSoundFile.setTime(time);
 	}
@@ -117,8 +117,8 @@ var nextSong = function () {
     };
 	//	get the index of the current song and then increment the value of the index.
 	var currentSongIndex = trackIndex(currentAlbum, currentSongFromAlbum);
-		currentSongIndex++
-	;
+		currentSongIndex++;
+	
 	if (currentSongIndex >= currentAlbum.songs.length) {
         currentSongIndex = 0;
     }
@@ -140,7 +140,7 @@ var nextSong = function () {
     $lastSongNumberCell.html(lastSongNumber);
 };
 
-var previousSong = function() {
+var previousSong = function () {
 
     var getLastSongNumber = function (index) {
         return index == (currentAlbum.songs.length - 1) ? 1 : index + 2;
@@ -202,9 +202,9 @@ var setCurrentAlbum = function (album) {
 	}
 };	
 
-var updateSeekBarWhileSongPlays = function() {
+var updateSeekBarWhileSongPlays = function () {
 	if (currentSoundFile) {
-		currentSoundFile.bind('timeupdate', function(event) {
+		currentSoundFile.bind('timeupdate', function (event) {
 			var seekBarFillRatio = this.getTime() / this.getDuration();
 			var $seekBar = $('.seek-control .seek-bar');
 
@@ -213,7 +213,7 @@ var updateSeekBarWhileSongPlays = function() {
 	}
 };
 
-var updateSeekPercentage = function($seekBar, seekBarFillRatio) {
+var updateSeekPercentage = function ($seekBar, seekBarFillRatio) {
 	var offsetXPercent = seekBarFillRatio * 100;
 	offsetXPercent = Math.max(0, offsetXPercent);
 	offsetXPercent = Math.min(100, offsetXPercent);
@@ -223,10 +223,10 @@ var updateSeekPercentage = function($seekBar, seekBarFillRatio) {
 	$seekBar.find('.thumb').css({left: percentageString});
 };
 
-var setupSeekBars = function() {
+var setupSeekBars = function () {
 	var $seekBars = $('.player-bar .seek-bar');
 
-	$seekBars.click(function(event) {
+	$seekBars.click(function (event) {
 	var offsetX = event.pageX - $(this).offset().left;
 	var barWidth = $(this).width();
 	var seekBarFillRatio = offsetX / barWidth;
@@ -238,10 +238,10 @@ var setupSeekBars = function() {
 	updateSeekPercentage($(this), seekBarFillRatio);
 	});
 	
-	$seekBars.find('.thumb').mousedown(function(event) {
+	$seekBars.find('.thumb').mousedown(function (event) {
 		var $seekBar = $(this).parent();
 
-		$(document).bind('mousemove.thumb', function(event){
+		$(document).bind('mousemove.thumb', function (event){
 			var offsetX = event.pageX - $seekBar.offset().left;
 			var barWidth = $seekBar.width();
 			var seekBarFillRatio = offsetX / barWidth;
@@ -253,7 +253,7 @@ var setupSeekBars = function() {
 			updateSeekPercentage($seekBar, seekBarFillRatio);
 		});
 
-		$(document).bind('mouseup.thumb', function() {
+		$(document).bind('mouseup.thumb', function () {
 			$(document).unbind('mousemove.thumb');
 			$(document).unbind('mouseup.thumb');
 		});
