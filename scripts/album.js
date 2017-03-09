@@ -209,23 +209,18 @@ var updateSeekBarWhileSongPlays = function() {
 			var $seekBar = $('.seek-control .seek-bar');
 
 			updateSeekPercentage($seekBar, seekBarFillRatio);
-			setCurrentTimeInPlayerBar();
-			setTotalTimeInPlayerBar();
+			setCurrentTimeInPlayerBar(this.getTime());
+			setTotalTimeInPlayerBar(this.getDuration());
 		});
 	}
 	
 	var setCurrentTimeInPlayerBar = function (currentTime) {
-		var timer = currentSoundFile.getTime();
-		currentTime = $('.current-time').text(filterTimeCode(timer));
-		
+		$('.current-time').text(filterTimeCode(currentTime));
 	};
 	
 	var setTotalTimeInPlayerBar = function (totalTime) {
-		var duration = currentSoundFile.getDuration();
-		totalTime = $('.total-time').text(filterTimeCode(duration));
+		$('.total-time').text(filterTimeCode(totalTime));
 	};
-	
-
 };
 
 var filterTimeCode = function (timeInSeconds) {
